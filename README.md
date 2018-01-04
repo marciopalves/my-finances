@@ -1,2 +1,2 @@
 # my-finances
-typescript, Reactx
+typescript, React
