@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -18,3 +18,30 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+h1, h2 {
+  text-align: center;
+}
+
+.tableWidth{
+  width: 1000px;
+}
+
+.tdWidth{
+  width: 190px;
+}
+
+/*table {
+	width: 100%;
+}*/
+
+/*.recuo {
+    padding: 20px;
+    text-align: center;
+}
+
+.recuo2 {
+    padding: 40px;
+    text-align: center;
+}
+*/

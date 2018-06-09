@@ -1,6 +1,6 @@
 export class Transacao {
     constructor(
-        public isCredito : boolean,
+        public tipo : string,
         public nome : string,
         public data: Date,
         public valor: number

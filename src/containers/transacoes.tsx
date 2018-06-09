@@ -1,15 +1,12 @@
 import * as React from 'react';
-import { Conta } from './models/Conta';
-import './App.css';
-import { Transacao } from './models/Transacao';
-import './css/pure-min.css';
-import './css/side-menu.css';
-import {Link} from 'react-router-dom';
+import { Conta } from '../models/Conta';
+import '../App.css';
+import { AdicionarTransacao } from '../components/AdicionarTransacao';
+import { Transacao } from '../models/Transacao';
+import '../css/pure-min.css';
+import '../css/side-menu.css';
 
-
-//const logo = require('./logo.svg');
-
-class App extends React.Component<{}, { contas: Conta[], contasTemp: Conta[], filtrando: boolean }> {
+class AddTransacao extends React.Component<{}, { contas: Conta[], contasTemp: Conta[], filtrando: boolean }> {
 
   componentWillMount() {
     this.state = {
@@ -18,37 +15,25 @@ class App extends React.Component<{}, { contas: Conta[], contasTemp: Conta[], fi
       contas: [
         {
           id: 1,
-          nome: "Caixa",
-          conta: 12,
-          descricao: "Minha conta poupança da CAIXA",
-          saldo: 100,
+          nome: "Banco do Brasil",
+          conta: 1209,
+          descricao: "Minha conta salário",
+          saldo: 800,
           transacoes: [
             {
               tipo: "Crédito",
               nome: "Bitcoin",
               data: new Date(),
-              valor: 100
-            },
-            {
-              tipo: "Crédito",
-              nome: "Salário",
-              data: new Date(),
-              valor: 50
-            },
-            {
-              tipo: "Crédito",
-              nome: "Freelancer",
-              data: new Date(),
-              valor: 1080
+              valor: 300
             }
           ]
         },
         {
           id: 2,
-          nome: "Itaú",
-          conta: 1234,
-          descricao: "Minha conta poupança da CAIXA",
-          saldo: 300,
+          nome: "Original",
+          conta: 1268,
+          descricao: "Minha conta corrente no Banco Original",
+          saldo: 1200,
           transacoes: [
             {
               tipo: "Crédito",
@@ -63,20 +48,20 @@ class App extends React.Component<{}, { contas: Conta[], contasTemp: Conta[], fi
   }
 
 
-  handleAdicionarTransacao(conta: number, transacao: Transacao) {
+  handleAdicionarTransacao(conta: string, transacao: Transacao) {
     let myContas = this.state.contas
     let match = false
     for (let i = 0; i < myContas.length; i++) {
-
       // Conta existe?
-      if (myContas[i].conta === conta) {
+      if (myContas[i].nome == conta) {
         myContas[i].transacoes.push(transacao);
         match = true
 
         // computar saldo
         let saldo: number = 0
         for (let j = 0; j < myContas[i].transacoes.length; j++) {
-          if (myContas[i].transacoes[j].tipo) {
+          console.log('teste', myContas[i].transacoes[j].tipo)
+          if (myContas[i].transacoes[j].tipo == "credito" || myContas[i].transacoes[j].tipo == "Crédito") {
             saldo += myContas[i].transacoes[j].valor
           } else {
             saldo -= myContas[i].transacoes[j].valor
@@ -102,7 +87,7 @@ class App extends React.Component<{}, { contas: Conta[], contasTemp: Conta[], fi
   handleFiltrar(nome: String, conta: number) {
     const contasTemp = new Array<Conta>()
     var contasFiltradas = this.state.contas
-
+    
     if (this.state.contasTemp.length == 0) {
       for (let conta of this.state.contas) {
         contasTemp.push(conta)
@@ -128,22 +113,10 @@ class App extends React.Component<{}, { contas: Conta[], contasTemp: Conta[], fi
 
   render() {
     return (
-      <div id="layout">
-        <div id="menu">
-          <div className="pure-menu">
-
-              <ul className="pure-menu-list">
-                  <li className="pure-menu-item"><Link to="/home" className="pure-menu-link">Home</Link></li>
-                  <li className="pure-menu-item"><Link to="/addconta" className="pure-menu-link">Cadastrar Conta</Link></li>
-                  <li className="pure-menu-item"><Link to="/transacoes" className="pure-menu-link">Transações</Link></li>
-              </ul>
-          </div>
-      </div>
-      <div className="App">
-        {this.props.children}
-      </div>
-    </div>
+        <div className="">
+          <AdicionarTransacao adicionarTransacao={this.handleAdicionarTransacao.bind(this)} contas={this.state.contas}/>
+        </div>
     );
   }
 }
-export default App;
+export default AddTransacao;
