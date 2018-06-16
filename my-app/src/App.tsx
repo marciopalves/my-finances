@@ -7,10 +7,8 @@ import './css/side-menu.css';
 import {Link} from 'react-router-dom';
 
 
-//const logo = require('./logo.svg');
-
 class App extends React.Component<{}, { contas: Conta[], contasTemp: Conta[], filtrando: boolean }> {
-
+  
   componentWillMount() {
     this.state = {
       filtrando: false,
@@ -18,9 +16,9 @@ class App extends React.Component<{}, { contas: Conta[], contasTemp: Conta[], fi
       contas: [
         {
           id: 1,
-          nome: "Caixa",
+          nome: "Banco Original",
           conta: 12,
-          descricao: "Minha conta poupança da CAIXA",
+          descricao: "Minha conta Salário",
           saldo: 100,
           transacoes: [
             {
@@ -33,28 +31,40 @@ class App extends React.Component<{}, { contas: Conta[], contasTemp: Conta[], fi
               tipo: "Crédito",
               nome: "Salário",
               data: new Date(),
-              valor: 50
+              valor: 5000
             },
             {
               tipo: "Crédito",
               nome: "Freelancer",
               data: new Date(),
               valor: 1080
+            },
+            {
+              tipo: "Debito",
+              nome: "Saque",
+              data: new Date(),
+              valor: 200
             }
           ]
         },
         {
           id: 2,
-          nome: "Itaú",
+          nome: "EasyInvest",
           conta: 1234,
-          descricao: "Minha conta poupança da CAIXA",
-          saldo: 300,
+          descricao: "Minha conta de investimentos",
+          saldo: 3000,
           transacoes: [
             {
               tipo: "Crédito",
-              nome: "Depósito",
+              nome: "tesouro-direto",
               data: new Date(),
-              valor: 300
+              valor: 500
+            },
+            {
+              tipo: "Crédito",
+              nome: "renda-fixa",
+              data: new Date(),
+              valor: 400
             }
           ]
         }
@@ -133,7 +143,7 @@ class App extends React.Component<{}, { contas: Conta[], contasTemp: Conta[], fi
           <div className="pure-menu">
 
               <ul className="pure-menu-list">
-                  <li className="pure-menu-item"><Link to="/home" className="pure-menu-link">Home</Link></li>
+                  <li className="pure-menu-item"><Link to="/home" className="pure-menu-link">Extrato</Link></li>
                   <li className="pure-menu-item"><Link to="/addconta" className="pure-menu-link">Cadastrar Conta</Link></li>
                   <li className="pure-menu-item"><Link to="/transacoes" className="pure-menu-link">Transações</Link></li>
               </ul>

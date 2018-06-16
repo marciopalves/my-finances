@@ -15,31 +15,58 @@ class AddTransacao extends React.Component<{}, { contas: Conta[], contasTemp: Co
       contas: [
         {
           id: 1,
-          nome: "Banco do Brasil",
-          conta: 1209,
+          nome: "Banco Original",
+          conta: 1249,
           descricao: "Minha conta salário",
-          saldo: 800,
+          saldo: 1000,
           transacoes: [
             {
-              tipo: "Crédito",
-              nome: "Bitcoin",
+              tipo: "credito",
+              nome: "Freela",
               data: new Date(),
-              valor: 300
+              valor: 800
             }
           ]
         },
         {
           id: 2,
-          nome: "Original",
-          conta: 1268,
-          descricao: "Minha conta corrente no Banco Original",
-          saldo: 1200,
+          nome: "Easy Invest",
+          conta: 3212,
+          descricao: "Minha conta de Investimentos",
+          saldo: 3000,
           transacoes: [
             {
-              tipo: "Crédito",
-              nome: "Depósito",
+              tipo: "credito",
+              nome: "Tesouro-Direto",
               data: new Date(),
-              valor: 300
+              valor: 1200
+            },
+            {
+              tipo: "credito",
+              nome: "Renda-fixa",
+              data: new Date(),
+              valor: 500
+            }
+          ]
+        },
+        {
+          id: 3,
+          nome: "Banco do Brasil",
+          conta: 3271,
+          descricao: "Conta Corrente",
+          saldo: 3000,
+          transacoes: [
+            {
+              tipo: "debito",
+              nome: "saque",
+              data: new Date(),
+              valor: 1200
+            },
+            {
+              tipo: "credito",
+              nome: "deposito",
+              data: new Date(),
+              valor: 500
             }
           ]
         }

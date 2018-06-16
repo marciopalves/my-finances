@@ -24,15 +24,15 @@ export class AdicionarTransacao extends React.Component<MyProps, {}> {
         const tipo = selectTipo.value;
 
         if (nome === '') {
-            alert('Informe uma descrição');
+            alert('Descrição é um campo obrigatório');
         }
 
         if (conta === '') {
-            alert('Informe  uma conta');
+            alert('Conta é um campo obrigatório');
         }
 
         if (valor === '') {
-            alert('Informe um valor');
+            alert('Valor é um campo obrigatório');
         }
 
         //let contaNumber = parseInt(conta)
@@ -93,6 +93,7 @@ export class AdicionarTransacao extends React.Component<MyProps, {}> {
                         <table className="tableWidth">
                             <tr>
                                 <td className="tdWidth" >Nome da conta</td>
+                                <td className="tdWidth" >Numero da conta</td>
                                 <td className="tdWidth" >Descrição</td>
                                 <td className="tdWidth" >Tipo de operação</td>
                                 <td className="tdWidth" >Data</td>
@@ -109,6 +110,7 @@ export class AdicionarTransacao extends React.Component<MyProps, {}> {
                                           return (
                                                 <table className="tableWidth">
                                                     <td className="tdWidth" >{conta.nome}</td>
+                                                    <td className="tdWidth" >{conta.conta}</td>
                                                     <td className="tdWidth" >{transacao.nome}</td>
                                                     <td className="tdWidth" >{transacao.tipo}</td>
                                                     <td className="tdWidth" >{transacao.data.toLocaleDateString()}</td>
@@ -128,4 +130,3 @@ export class AdicionarTransacao extends React.Component<MyProps, {}> {
         );
     }
 }
-

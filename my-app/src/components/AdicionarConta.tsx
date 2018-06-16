@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { Conta } from '../models/Conta';
 import { Transacao } from '../models/Transacao';
+//import { App} from '../App';
 
 export default interface MyProps {
     adicionarConta: (conta: Conta) => {};
 }
 
-export default interface Props {
+export default interface Props {  
   contas: Conta[];
 }
 

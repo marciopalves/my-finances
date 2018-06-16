@@ -1,2 +1,0 @@
-# my-finances
-typescript, React
